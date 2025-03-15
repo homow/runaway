@@ -18,9 +18,10 @@ const contextMenuHandler = event => {
     event.preventDefault();
     customMenu.style.display = 'flex';
     const spaceBelow = window.innerHeight + window.scrollY - (event.pageY + customMenu.offsetHeight)
+    const spaceRight = window.innerWidth - (event.pageX + customMenu.offsetWidth)
 
-    customMenu.style.top = spaceBelow < 0 ? `${event.pageY - customMenu.offsetHeight}px` : customMenu.style.top = `${event.pageY}px`
-    customMenu.style.left = `${event.pageX}px`
+    customMenu.style.top = spaceBelow < 0 ? `${event.pageY - customMenu.offsetHeight}px` : `${event.pageY}px`
+    customMenu.style.left = spaceRight < 0 ? `${event.pageX - customMenu.offsetWidth}px` : `${event.pageX}px`
 }
 // close context menu with click
 const closeContextMenu = event => {
@@ -63,6 +64,7 @@ const openMenuHandler = (menu, event) => {
 }
 
 // events
+document.body.addEventListener("dblclick", contextMenuHandler) // context menu
 document.body.addEventListener("contextmenu", contextMenuHandler); // context menu
 document.addEventListener("keydown", closeContextMenuKey); // closes menu with escape
 document.body.addEventListener("click", closeContextMenu) // closes context menu
