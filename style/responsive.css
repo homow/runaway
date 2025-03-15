@@ -120,9 +120,6 @@
         flex-direction: column;
         gap: 1rem;
     }
-    .base-header__buttons a:last-child {
-        min-width: unset;
-    }
 }
 
 @media only screen and (max-width: 440px) {
