@@ -1,3 +1,13 @@
+// disables all links
+document.body.querySelectorAll("body a").forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+}))
+
+// for reload page
+document.body.querySelector(".reload").addEventListener("click", () => {
+    location.reload();
+});
+
 // variables
 const rootElem = document.querySelector(':root');
 const changeTheme = document.querySelector(".theme i");
@@ -102,10 +112,3 @@ btnNavMenu.addEventListener("click", openNavMenu.bind(null, navMenu)); // open n
 document.addEventListener("keydown", keyCloseElem); // closes all element with escape
 document.addEventListener("click", clickCloseElem.bind(null, customMenu)) // closes all element with click on body
 navMenu.addEventListener("click", event => event.stopPropagation()) // disable closes on menu
-
-// disables all links
-document.body.querySelectorAll("body a:not(.reload a)").forEach(link => link.addEventListener("click", event => {
-    event.preventDefault();
-}))
-
-document.body.querySelector(".reload a").href = "index.html"; // for reload page
