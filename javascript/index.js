@@ -104,6 +104,8 @@ document.addEventListener("click", clickCloseElem.bind(null, customMenu)) // clo
 navMenu.addEventListener("click", event => event.stopPropagation()) // disable closes on menu
 
 // disables all links
-document.body.querySelectorAll("body a").forEach(link => link.addEventListener("click", event => {
+document.body.querySelectorAll("body a:not(.reload a)").forEach(link => link.addEventListener("click", event => {
     event.preventDefault();
 }))
+
+document.body.querySelector(".reload a").href = "index.html"; // for reload page
