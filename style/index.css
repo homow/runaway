@@ -286,7 +286,6 @@ li {
     bottom: -64px;
     right: -10px;
     transform: rotate(45deg);
-    backdrop-filter: blur(10px);
 }
 
 @keyframes translate-img {
